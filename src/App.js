@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, NavLink } from "react-router-dom";
 
+import Layout from "./components/Layout";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
@@ -11,7 +12,7 @@ import Mission from "./components/Mission";
 export default function App(){
   return(
 
-    <div>
+    <Layout>
       <nav>
         {/* <NavLink to='/' end>Home</NavLink> */}
         <NavLink to="/about">About</NavLink>
@@ -28,6 +29,6 @@ export default function App(){
         <Route path="/products/:id" element={<ProductDetails />} />
         
       </Routes>
-    </div>
+    </Layout>
   )
 }
