@@ -1,17 +1,16 @@
-import React, { useState } from "react";
 
-import { Link,useSearchParams  } from "react-router-dom";
+
+import { Link,useLocation,useSearchParams  } from "react-router-dom";
 import {getProducts} from '../fakeApi'
 
 export default function Products(){
 
     const [searchParams, setSearchParams] = useSearchParams();
     const name = searchParams.get('name') ?? '';
-
     const products = getProducts();
     const visibleProducts = getVisibleProducts();
+    const location = useLocation();
 
-    
     
     function getVisibleProducts(){
         return(
@@ -40,7 +39,8 @@ export default function Products(){
             <ul>
             {visibleProducts.map(({id,name}) => 
                ( <li key={id}>
-                    <Link to={id}>
+                    <Link to={id}
+                    state={{from:location}}>
                     <p>{name}</p>
                     </Link>
                 </li>))}

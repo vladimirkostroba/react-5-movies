@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import Rewies from "./components/Rewies";
 import Mission from "./components/Mission";
+import Gallery from "./components/Gallery";
 
 
 export default function App(){
@@ -26,7 +27,9 @@ export default function App(){
              <Route path="mission" element={<Mission/>}/>
         </Route>
         <Route path="/products" element={<Products/>}/>
-        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/products/:id" element={<ProductDetails />}>
+          <Route path="gallery" element={<Gallery/>}/>
+        </Route>
         
       </Routes>
     </Layout>
